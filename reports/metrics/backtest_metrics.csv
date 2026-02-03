@@ -1,0 +1,2 @@
+train_start,train_end,test_start,test_end,test_days,mae,mape_percent
+2023-01-01,2023-03-16,2023-03-17,2023-03-31,15,7910.690598308702,7.327162428029503
