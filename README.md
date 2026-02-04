@@ -49,8 +49,8 @@ All processing is fully reproducible via the pipeline.
 
 4. **Evaluation**
    - Time-based backtest
-   - Train: first 75 days
-   - Test: last 15 days
+   - Train: first 75 days (chronological)
+   - Test: last 15 days (holdout)
    - Metrics: MAE and MAPE
 
 ---
@@ -62,6 +62,18 @@ All processing is fully reproducible via the pipeline.
 - **MAPE:** ~7.33%
 
 These results indicate the model captures weekly demand patterns well and provides actionable short-term forecasts suitable for operational planning.
+
+### Backtest Performance
+
+Actual vs predicted daily demand on a 15-day holdout period:
+
+![Backtest: actual vs predicted](reports/figures/backtest_actual_vs_pred.png)
+
+### 30-Day Demand Forecast
+
+Prophet forecast showing expected demand and uncertainty bounds:
+
+![30-day demand forecast](reports/figures/prophet_forecast.png)
 
 ### Artifacts
 - Forecast plot: `reports/figures/prophet_forecast.png`
@@ -114,8 +126,14 @@ python -m src.evaluate
 ---
 
 ## Future Work
+- Hyperparameter tuning and holiday effects
+- Cross-validation over rolling windows
+- Comparison with alternative models (ARIMA, XGBoost, LSTM)
+- Integration into a scheduled or orchestrated workflow
 
-* Hyperparameter tuning and holiday effects
-* Cross-validation over rolling windows
-* Comparison with alternative models (ARIMA, XGBoost, LSTM)
-* Integration into a scheduled or orchestrated workflow
+---
+
+## Key Takeaways
+- Demand exhibits strong and stable weekly seasonality
+- Prophet provides stable short-term forecasts with ~7% MAPE
+- Suitable for operational planning and capacity decisions

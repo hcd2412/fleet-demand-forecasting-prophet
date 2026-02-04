@@ -52,10 +52,12 @@ def main() -> None:
     print(f"[model] saved forecast -> {cfg.out_forecast_csv}")
 
     fig1 = model.plot(forecast)
+    fig1.set_size_inches(12, 6)
     fig1.savefig(cfg.out_plot_forecast, bbox_inches="tight")
     print(f"[model] saved plot -> {cfg.out_plot_forecast}")
 
     fig2 = model.plot_components(forecast)
+    fig2.set_size_inches(12, 8)
     fig2.savefig(cfg.out_plot_components, bbox_inches="tight")
     print(f"[model] saved components -> {cfg.out_plot_components}")
 

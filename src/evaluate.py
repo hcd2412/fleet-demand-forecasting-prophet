@@ -75,7 +75,7 @@ def main() -> None:
     print(f"[eval] saved metrics -> {cfg.out_metrics_csv}")
     print(f"[eval] MAE={mae:,.2f}  MAPE={mape_pct:.2f}%")
 
-    plt.figure()
+    plt.figure(figsize=(12, 6))
     plt.plot(pred["ds"], pred["y"], label="actual")
     plt.plot(pred["ds"], pred["yhat"], label="predicted")
     plt.xticks(rotation=45)
